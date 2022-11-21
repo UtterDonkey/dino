@@ -20,7 +20,7 @@
             position: fixed;
             object-fit: cover;
             height: auto;
-            width: 100%;;
+            width: 100%;
         }
         #ground2{
             transform: scaleX(-1);
@@ -34,10 +34,14 @@
             width: 9vw;
             height: auto;
         }
-
+        h1{
+            z-index: 9999999999;
+            position: fixed;
+        }
     </style>
 </head>
 <body>
+    <h1></h1>
     <img id="dino" src="./dinosaur-walk.gif">
     <img id="ground" class="ground" src="./ground.jpg">
     <img id="ground2" class="ground" src="./ground.jpg">
@@ -82,6 +86,7 @@
             if(Y < 0.1){
                 Yvelocity = 0
             }
+            document.querySelector('h1').innerText = Math.abs(Math.round(X))
             setTimeout(tick, 0);
         }
         tick();
