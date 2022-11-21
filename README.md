@@ -53,9 +53,10 @@ Add This to your CSS:
             object-fit: cover;
             height: auto;
             width: 100%;
+            transform: rotateX(45deg);
         }
         #ground2{
-            transform: scaleX(-1);
+            transform: scaleX(-1) rotateX(45deg);
         }
 ```
 
@@ -147,9 +148,10 @@ You should now have this:
             object-fit: cover;
             height: auto;
             width: 100%;
+            transform: rotateX(45deg);
         }
         #ground2{
-            transform: scaleX(-1);
+            transform: scaleX(-1) rotateX(45deg);
         }
         .cactus{
             position: fixed;
@@ -371,9 +373,10 @@ You should now have this:
             object-fit: cover;
             height: auto;
             width: 100%;
+            transform: rotateX(45deg);
         }
         #ground2{
-            transform: scaleX(-1);
+            transform: scaleX(-1) rotateX(45deg);
         }
         .cactus{
             position: fixed;
