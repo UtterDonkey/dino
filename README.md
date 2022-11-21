@@ -128,7 +128,7 @@ Put this at the bottom of the `tick` function:
 ```
 
 
-You should not have this:
+You should now have this:
 
 ```html
 <!DOCTYPE html>
@@ -216,3 +216,53 @@ You should not have this:
 </body>
 </html>
 ```
+
+## Step 5 - Make Dinosaur Jump
+
+Add this to your JavaScript: 
+
+```js
+        function jump(){
+            Yvelocity = 4.5;
+        };
+        document.body.addEventListener('keydown', () =>{
+            jump()
+        })
+        
+        document.body.addEventListener('mousedown', () =>{
+            jump()
+        });
+```
+
+Put this at the bottom of the `tick` function:
+
+```js
+
+            Y = Y+Yvelocity;
+            if(Yvelocity > 0){
+            Yvelocity = Yvelocity*0.9
+            }else{
+                Yvelocity = Yvelocity*1.2
+            }
+            if(Y > 0.1 && Yvelocity < 0.1) Yvelocity = -0.4
+            if(Y < 0.1){
+                Yvelocity = 0
+            }
+
+```
+
+Put this in your CSS: 
+
+```css
+
+        #dino{
+            position: fixed;
+            top: 50%;
+            z-index: 100;
+            border-radius: 2rem;
+            left: 10vw;
+        }
+
+```
+
+## Step 6 - Death
