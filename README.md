@@ -266,3 +266,52 @@ Put this in your CSS:
 ```
 
 ## Step 6 - Death
+
+Add this to your `for` loop in the `tick` function: 
+
+```js
+// use debug = true to prevent death
+                if((currentX > 75 && currentX < 85 ) && Y < 15 && !debug){
+                    document.write('You failed idiot!')
+                }
+```
+
+
+
+Your `tick` function should now look like this: 
+
+```js
+
+        function tick(){
+            dino.style.translate = `0% calc( -100% - ${Y}vh)`;
+            ground.style.left = ((X-100)%200)+100 + 'vw';
+            ground2.style.left = (X%200)+100 + 'vw';
+            X = X-0.2;
+            for(cactus of cacti){
+                let currentX = parseFloat(cactus.style.right.replace('vw', ''));
+                if(currentX > 110){
+                    cacti.splice(cacti.indexOf(cactus), 0);
+                    cactus.remove();
+                    continue;
+                }
+                currentX = currentX + 0.2;
+                cactus.style.right = currentX + 'vw';
+                if((currentX > 75 && currentX < 85 ) && Y < 15 && !debug){
+                    document.write('You failed idiot!')
+                }
+
+            }
+            Y = Y+Yvelocity;
+            if(Yvelocity > 0){
+            Yvelocity = Yvelocity*0.9
+            }else{
+                Yvelocity = Yvelocity*1.2
+            }
+            if(Y > 0.1 && Yvelocity < 0.1) Yvelocity = -0.4
+            if(Y < 0.1){
+                Yvelocity = 0
+            }
+            setTimeout(tick, 0);
+        }
+        tick();
+```
